@@ -1,4 +1,4 @@
-import { PlanetMap } from "../types/PlanetMap";
+import { PlanetMap } from "../common/types/PlanetMap";
 
 export const planetTranslation: PlanetMap = {
     name: 'nombre',

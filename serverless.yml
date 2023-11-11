@@ -31,7 +31,7 @@ functions:
     memorySize: 128
     events:
       - httpApi:
-          path: /people
+          path: /person
           method: get
   getPersonById:
     handler: src/handlers/handlerPerson.getPersonById
@@ -39,7 +39,7 @@ functions:
     memorySize: 128
     events:
       - httpApi:
-          path: /people/{personId}
+          path: /person/{personId}
           method: get
   addPerson:
     handler: src/handlers/handlerPerson.addPerson
@@ -47,7 +47,7 @@ functions:
     memorySize: 128
     events:
       - httpApi:
-          path: /people
+          path: /person
           method: post
   getPlanetById:
     handler: src/handlers/handlerPlanet.getPlanetById
