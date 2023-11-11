@@ -1,0 +1,26 @@
+{
+  "name": "serverless-lambda-crud",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "deploy": "sls deploy --verbose",
+    "dev": "sls offline"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.126",
+    "@types/uuid": "^9.0.7",
+    "serverless-offline": "^13.2.1",
+    "serverless-plugin-typescript": "^2.1.5",
+    "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "@aws-sdk/util-dynamodb": "^3.449.0",
+    "aws-sdk": "^2.1494.0",
+    "axios": "^1.6.1",
+    "uuid": "^9.0.1"
+  }
+}

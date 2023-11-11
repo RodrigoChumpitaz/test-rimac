@@ -1,0 +1,77 @@
+service: serverless-lambda-crud
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  region: us-west-2
+
+  iam:
+    role:
+      statements:
+        - Effect: Allow
+          Action: 
+            - "dynamodb:PutItem"
+            - "dynamodb:GetItem"
+            - "dynamodb:DeleteItem"
+            - "dynamodb:Scan"
+          Resource:
+            - { "Fn::GetAtt": ["PersonTable", "Arn"] }
+
+functions:
+  handler:
+    handler: src/index.handler
+    events:
+      - httpApi:
+          path: /
+          method: get
+  getAllPerson:
+    handler: src/handlers/handlerPerson.getAllPerson
+    name: getAllPerson
+    memorySize: 128
+    events:
+      - httpApi:
+          path: /people
+          method: get
+  getPersonById:
+    handler: src/handlers/handlerPerson.getPersonById
+    name: getPersonById
+    memorySize: 128
+    events:
+      - httpApi:
+          path: /people/{personId}
+          method: get
+  addPerson:
+    handler: src/handlers/handlerPerson.addPerson
+    name: addPerson
+    memorySize: 128
+    events:
+      - httpApi:
+          path: /people
+          method: post
+  getPlanetById:
+    handler: src/handlers/handlerPlanet.getPlanetById
+    name: getPlanetById
+    memorySize: 128
+    events:
+      - httpApi:
+          path: /planets/{planetId}
+          method: get
+resources:
+  Resources:
+    PersonTable:
+      Type: AWS::DynamoDB::Table
+      Properties:
+        TableName: Person
+        AttributeDefinitions:
+          - AttributeName: personId
+            AttributeType: S
+        KeySchema:
+          - AttributeName: personId
+            KeyType: HASH
+        ProvisionedThroughput:
+          ReadCapacityUnits: 1
+          WriteCapacityUnits: 1
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
