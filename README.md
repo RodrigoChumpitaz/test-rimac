@@ -1,4 +1,4 @@
-# Serverless Node.js Typescript - Indra
+# Serverless Node.js Typescript - Rimac
 
 This project that implements an apiREST is part of a technical test.
 
