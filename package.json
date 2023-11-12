@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "jest --detectOpenHandles",
     "deploy": "sls deploy --verbose",
     "dev": "sls offline"
   },
@@ -12,9 +13,13 @@
   "license": "ISC",
   "devDependencies": {
     "@types/aws-lambda": "^8.10.126",
+    "@types/jest": "^29.5.8",
     "@types/uuid": "^9.0.7",
+    "jest": "^29.7.0",
+    "serverless-jest-plugin": "^0.4.0",
     "serverless-offline": "^13.2.1",
     "serverless-plugin-typescript": "^2.1.5",
+    "ts-jest": "^29.1.1",
     "typescript": "^5.2.2"
   },
   "dependencies": {
